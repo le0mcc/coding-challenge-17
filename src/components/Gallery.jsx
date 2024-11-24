@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+function LoadingMessage({ show }) {
+    // If tour data is present, don't show loading message
+    if (!show) {
+        return null
+    }
+
+    // Return loading message if tour data isn't present
+    return (
+        <>
+            <h2>Loading...</h2>
+        </>
+    )
+}
+
 function FetchTourData() {
     const [tours, setTours] = useState([]);
 
@@ -24,8 +38,9 @@ function FetchTourData() {
 
     return ( // Return each tour's information
         <div>
-            <h2>Tour Data</h2>
+            <LoadingMessage show={tours.length==0}/>
             <>
+            <h2>Tour Data</h2>
                 {tours.map(tour => (
                     <div key={tour.id}>
                         <h2>{tour.name}</h2>
