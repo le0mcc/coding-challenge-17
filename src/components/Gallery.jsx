@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Tour from "./Tour";
 
 function LoadingMessage({ show }) {
   // If tour data is present, don't show loading message
@@ -12,37 +13,6 @@ function LoadingMessage({ show }) {
       <h2>Loading...</h2>
     </>
   );
-}
-
-function Tour({ tour, buttonCallback }) {
-  const [minimized, setminimized] = useState(true);
-
-    return (
-    <>
-      <div key={tour.id}>
-            <h2>{tour.name}</h2>
-            <p>Price: ${tour.price}</p>
-            {!minimized && <p>{tour.info}</p>}
-            <img src={tour.image} alt={tour.name} width="50%" />
-            <div>
-              <button
-                onClick={() => {
-                  setminimized(!minimized);
-                }}
-              >
-                {minimized ? "Show More" : "Show Less"}
-              </button>
-            </div>
-            <div>
-              <button
-                onClick={() => buttonCallback(tour.id)}
-              >
-                Not Interested
-              </button>
-            </div>
-          </div>
-    </>
-    )
 }
 
 function FetchTourData() {
