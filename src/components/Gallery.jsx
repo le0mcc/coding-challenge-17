@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NotInterested from './Button';
 
 function FetchTourData() {
     const [tours, setTours] = useState([]);
@@ -28,11 +27,18 @@ function FetchTourData() {
             <h2>Tour Data</h2>
             <>
                 {tours.map(tour => (
-                    <p key={tour.id}>
+                    <div key={tour.id}>
                         <h2>{tour.name}</h2>
                         <p>Price: ${tour.price}</p>
                         <p>{tour.info}</p>
-                    </p>
+                        <img src={tour.image} alt={tour.name} width="100%"/>
+                        <button onClick={() => {
+                            setTours(
+                                tours.filter(t => t.id !== tour.id)
+                            )
+                        }}>Not Interested
+                        </button>
+                    </div>
                 ))}
             </>
         </div>
