@@ -32,6 +32,8 @@ function FetchTourData() {
             // Parse data from response object
             .then(data => setTours(JSON.parse(data.contents)))
             .catch(error => {
+                // Handle and display an error message if the fetch fails
+                alert("Failed to load")
                 console.error(`Error fetching data ${error}`)
             })
     }, []); // Empty dependency array so it only runs once when the component mounts
