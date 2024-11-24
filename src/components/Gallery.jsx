@@ -16,13 +16,14 @@ function FetchTourData() {
                 }
                 return response.json();
             })
+            // Parse data from response object
             .then(data => setTours(JSON.parse(data.contents)))
             .catch(error => {
                 console.error(`Error fetching data ${error}`)
             })
     }, []); // Empty dependency array so it only runs once when the component mounts
 
-    return (
+    return ( // Return each tour's information
         <div>
             <h2>Tour Data</h2>
             <>
