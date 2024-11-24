@@ -40,12 +40,13 @@ function FetchTourData() {
       });
   }, []); // Empty dependency array so it only runs once when the component mounts
 
-  function removeTour(tourId) {
-    setTours(tours.filter((t) => t.id !== tourId));
+  // Creating new array without the target and setting state
+  function removeTour(targetId) {
+    setTours(tours.filter((t) => t.id !== targetId));
   };
 
   return (
-    // Return each tour's information
+    // Return each tour's information using map
     <div>
       <LoadingMessage show={tours.length == 0} />
       <>

@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  background-color: #e9c4ff6b;
+  color: #000000aa;
+  text-align: start;
+}
+
+img {
+  border-radius: 10%;
+}
